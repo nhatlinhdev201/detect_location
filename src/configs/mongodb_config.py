@@ -15,7 +15,7 @@ encoded_username = quote_plus(username)
 encoded_password = quote_plus(password)
 
 # Xây dựng MONGO_URI
-MONGO_URI = f"mongodb://{encoded_username}:{encoded_password}@localhost:{host}"
+MONGO_URI = f"mongodb://{encoded_username}:{encoded_password}@mongodb:{host}"
 
 class MongoDB:
     def __init__(self, uri: str, db_name: str):

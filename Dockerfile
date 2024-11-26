@@ -1,17 +1,16 @@
-# Sử dụng hình ảnh chính thức của Python
-FROM python:3.11-slim
+# Bắt đầu từ image Python
+FROM python:3.9-slim
 
-# Thiết lập thư mục làm việc
+# Cài đặt các thư viện cần thiết
 WORKDIR /app
-
-# Sao chép requirements.txt vào container
-COPY requirements.txt .
-
-# Cài đặt các thư viện từ requirements.txt
+COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Sao chép toàn bộ mã nguồn vào container
-COPY . .
+# Copy mã nguồn của bạn vào container
+COPY ./src /app/src
 
-# Chạy ứng dụng FastAPI
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+# Expose port mà FastAPI sẽ chạy
+EXPOSE 8088
+
+# Cấu hình để chạy ứng dụng FastAPI
+CMD ["uvicorn", "src.app:app", "--host", "0.0.0.0", "--port", "8088"]
