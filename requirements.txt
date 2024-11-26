@@ -1,0 +1,11 @@
+pandas
+unidecode
+fastapi
+uvicorn
+openpyxl
+pymongo
+motor
+python-dotenv
+httpx
+cachetools
+#pip install -r requirements.txt
